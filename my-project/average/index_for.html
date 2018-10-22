@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>평균값 계산기2</title>
+
+    <script>
+        // 입력된 숫자의 총합
+        var sum = 0;
+        var totalNumbers = 3;
+
+        // i가 1부터 totalNumbers가 될때까지 1씩 증가하면서 반복
+        for(var i = 1; i <= totalNumbers; i++) {
+            var value = prompt('숫자를 입력하세용.');
+            sum += parseInt(value);
+        }
+
+        var avg = sum / totalNumbers;
+
+        alert('average: ' + avg);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
