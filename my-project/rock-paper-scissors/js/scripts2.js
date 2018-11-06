@@ -19,11 +19,11 @@ function onButtonClick(userInput) {
     if(userInput === SCISSORS){
         if (comInput === SCISSORS) {
             result += ' "무승부"';
-            } else if (comInput === ROCK) {
+        } else if (comInput === ROCK) {
             result += ' "컴퓨터 승"';
-            } else {
+        } else {
             result += ' "당신 승"';
-            }
+        }
     } else if(userInput === ROCK){
         if (comInput === SCISSORS) {
             result += ' "당신 승"';
