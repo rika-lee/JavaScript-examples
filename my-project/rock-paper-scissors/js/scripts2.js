@@ -34,11 +34,11 @@ function onButtonClick(userInput) {
         }
     } else {
         if (comInput === SCISSORS) {
-          ' "컴퓨터 승"';
+            ' "컴퓨터 승"';
         } else if (comInput === ROCK) {
-          result += ' "당신 승"';
+            result += ' "당신 승"';
         } else {
-          result += ' "무승부"';
+            result += ' "무승부"';
         }
     }
     alert(result);
