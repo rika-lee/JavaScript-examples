@@ -1,11 +1,8 @@
-//이름을 물어본다
 var userName = prompt("What's your name?");
+var masterNames = ['rika', 'Rika', 'RIKA', '리카', 'りか']
 
-//이름을 분석한다
-if (userName === 'rika' || userName === 'Rika' || userName === 'RIKA' || userName === '리카' || userName === 'りか') {
+if (masterNames.includes(userName) == true ) {
     alert('Hello, master!');
-
 } else {
     alert('Hello, ' + userName)
-
 }
