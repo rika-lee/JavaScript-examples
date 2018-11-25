@@ -66,6 +66,12 @@ button {
     color: #fff;
 }
 
+.div-control-panel.inner {
+    margin: auto;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
 .div-control-name {
     font-size: 20px;
     margin-bottom: 5px;

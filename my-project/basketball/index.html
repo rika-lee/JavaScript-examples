@@ -35,8 +35,16 @@
         </div>
         <div id="div-user" class="div-panel">
             <div class="div-control-name">사용자</div>
-            <button class="btn-user" onclick="onUserShoot(2)">2점슛</button>
-            <button class="btn-user" onclick="onUserShoot(3)">3점슛</button>
+            <button class="btn-user" onclick="onUserShoot(2)" disabled>2점슛</button>
+            <button class="btn-user" onclick="onUserShoot(3)" disabled>3점슛</button>
+        </div>
+    </div>
+
+    <div class="div-control-panel">
+        <div class="div-control-panel inner">
+            <div class="div-panel">
+                <button class="btn-refresh" onclick="reloadPage()" disabled>다시 도전하기</button>
+            </div>
         </div>
     </div>
 
