@@ -1,13 +1,19 @@
-var comScore = 0;
-var comPercent2 = 0.5;
-var comPercent3 = 0.33;
+var computer = {
+    score: 0,
+    percent2: 0.5,
+    percent3: 0.33
+};
 
-var userScore = 0;
-var userPercent2 = 0.5;
-var userPercent3 = 0.33;
+var user = {
+    score: 0,
+    percent2: 0.5,
+    percent3: 0.33
+};
 
-var isComputerTurn = true;
-var shotsLeft = 15;
+var game = {
+    isComputerTurn: true,
+    shotsLeft: 15
+};
 
 function showText(s) {
     var textElem = document.getElementById('text');
@@ -15,15 +21,15 @@ function showText(s) {
 }
 
 function updateComputerScore(score) {
-    comScore += score;
+    computer.score += score;
     var comScoreElem = document.getElementById('computer-score');
-    comScoreElem.innerHTML = comScore;
+    comScoreElem.innerHTML = computer.score;
 }
 
 function updateUserScore(score) {
-    userScore += score;
+    user.score += score;
     var userScoreElem = document.getElementById('user-score');
-    userScoreElem.innerHTML = userScore;
+    userScoreElem.innerHTML = user.score;
 }
 
 function disableComputerButtons(flag) {
@@ -43,47 +49,39 @@ function disableUSerButtons(flag) {
 }
 
 function updateAI() {
-    var diff = userScore - comScore;
+    var diff = user.score - computer.score;
 
     if (diff >= 10) {
-        comPercent2 = 0.7;
-        comPercent3 = 0.43;
+        computer.percent2 = 0.7;
+        computer.percent3 = 0.43;
     } else if (diff >= 6) {
-        comPercent2 = 0.6;
-        comPercent3 = 0.38;
+        computer.percent2 = 0.6;
+        computer.percent3 = 0.38;
     } else if (diff <= -10) {
-        comPercent2 = 0.3;
-        comPercent3 = 0.23;
+        computer.percent2 = 0.3;
+        computer.percent3 = 0.23;
     } else if (diff <= -6) {
-        comPercent2 = 0.4;
-        comPercent3 = 0.28;
+        computer.percent2 = 0.4;
+        computer.percent3 = 0.28;
     }
 }
 
 function onComputerShoot() {
-    if (!isComputerTurn)
+    if (!game.isComputerTurn)
         return;
 
     updateAI();    
 
     var shootType = Math.random() < 0.5 ? 2 : 3;
 
-    if (shootType === 2) {
-        if (Math.random() < comPercent2) {
-            showText('컴퓨터 2점 슛 성공!');
-            updateComputerScore(2);
-        } else {
-            showText('컴퓨터 2점 슛 실패');
-        }
+    if (Math.random() < computer['percent' + shootType]) {
+        showText('컴퓨터 ' + shootType + '점 슛 성공!');
+        updateComputerScore(shootType);
     } else {
-        if (Math.random() < comPercent3) {
-            showText('컴퓨터 3점 슛 성공!');
-            updateComputerScore(3);
-        } else {
-            showText('컴퓨터 3점 슛 실패');
-        }
+        showText('컴퓨터 ' + shootType + '점 슛 실패');
     }
-    isComputerTurn = false;
+
+    game.isComputerTurn = false;
 
     disableComputerButtons(true);
     disableUSerButtons(false);
@@ -91,38 +89,30 @@ function onComputerShoot() {
 
 function onUserShoot(shootType) {
 
-    if (isComputerTurn)
+    if (game.isComputerTurn)
         return;
 
-    if (shootType === 2) {
-        if (Math.random() < userPercent2) {
-            showText('2점 슛 성공!');
-            updateUserScore(2);
-        } else {
-            showText('2점 슛 실패');
-        }
+    if (Math.random() < user['percent' + shootType]) {
+        showText(shootType + '점 슛 성공!');
+        updateUserScore(shootType);
     } else {
-        if (Math.random() < userPercent3) {
-            showText('3점 슛 성공!');
-            updateUserScore(3);
-        } else {
-            showText('3점 슛 실패');
-        }
+        showText(shootType + '점 슛 실패');
     }
-    isComputerTurn = true;
+
+    game.isComputerTurn = true;
 
     disableComputerButtons(false);
     disableUSerButtons(true);
 
-    shotsLeft--;
+    game.shotsLeft--;
 
     var shotsLeftElem = document.getElementById('shots-left');
-    shotsLeftElem.innerHTML = shotsLeft;
+    shotsLeftElem.innerHTML = game.shotsLeft;
 
-    if (shotsLeft === 0) {
-        if  (userScore > comScore)
+    if (game.shotsLeft === 0) {
+        if (user.score > computer.score)
             showText('승리했습니다!');
-        else if (userScore < comScore)
+        else if (user.score < computer.score)
             showText('아쉽게도 졌습니다...');
         else
             showText('비겼습니다.');
@@ -133,7 +123,7 @@ function onUserShoot(shootType) {
         var refreshButtons = document.getElementsByClassName('btn-refresh');
         for (i = 0; i < refreshButtons.length; i++) {
         refreshButtons[i].disabled = false;
-        }   
+        }
     }
 }
 
