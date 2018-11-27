@@ -1,5 +1,11 @@
 var comScore = 0;
+var comPercent2 = 0.5;
+var comPercent3 = 0.33;
+
 var userScore = 0;
+var userPercent2 = 0.5;
+var userPercent3 = 0.33;
+
 var isComputerTurn = true;
 var shotsLeft = 15;
 
@@ -36,21 +42,41 @@ function disableUSerButtons(flag) {
     }
 }
 
+function updateAI() {
+    var diff = userScore - comScore;
+
+    if (diff >= 10) {
+        comPercent2 = 0.7;
+        comPercent3 = 0.43;
+    } else if (diff >= 6) {
+        comPercent2 = 0.6;
+        comPercent3 = 0.38;
+    } else if (diff <= -10) {
+        comPercent2 = 0.3;
+        comPercent3 = 0.23;
+    } else if (diff <= -6) {
+        comPercent2 = 0.4;
+        comPercent3 = 0.28;
+    }
+}
+
 function onComputerShoot() {
     if (!isComputerTurn)
         return;
 
+    updateAI();    
+
     var shootType = Math.random() < 0.5 ? 2 : 3;
 
     if (shootType === 2) {
-        if (Math.random() < 0.5) {
+        if (Math.random() < comPercent2) {
             showText('컴퓨터 2점 슛 성공!');
             updateComputerScore(2);
         } else {
             showText('컴퓨터 2점 슛 실패');
         }
     } else {
-        if (Math.random() < 0.33) {
+        if (Math.random() < comPercent3) {
             showText('컴퓨터 3점 슛 성공!');
             updateComputerScore(3);
         } else {
@@ -69,14 +95,14 @@ function onUserShoot(shootType) {
         return;
 
     if (shootType === 2) {
-        if (Math.random() < 0.5) {
+        if (Math.random() < userPercent2) {
             showText('2점 슛 성공!');
             updateUserScore(2);
         } else {
             showText('2점 슛 실패');
         }
     } else {
-        if (Math.random() < 0.33) {
+        if (Math.random() < userPercent3) {
             showText('3점 슛 성공!');
             updateUserScore(3);
         } else {
