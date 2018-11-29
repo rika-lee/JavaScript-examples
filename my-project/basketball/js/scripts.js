@@ -40,7 +40,7 @@ function disableComputerButtons(flag) {
     }
 }
 
-function disableUSerButtons(flag) {
+function disableUserButtons(flag) {
     var userButtons = document.getElementsByClassName('btn-user');
 
     for (var i=0; i < userButtons.length; i++) {
@@ -84,7 +84,7 @@ function onComputerShoot() {
     game.isComputerTurn = false;
 
     disableComputerButtons(true);
-    disableUSerButtons(false);
+    disableUserButtons(false);
 }
 
 function onUserShoot(shootType) {
@@ -102,7 +102,7 @@ function onUserShoot(shootType) {
     game.isComputerTurn = true;
 
     disableComputerButtons(false);
-    disableUSerButtons(true);
+    disableUserButtons(true);
 
     game.shotsLeft--;
 
@@ -118,11 +118,11 @@ function onUserShoot(shootType) {
             showText('비겼습니다.');
 
         disableComputerButtons(true);
-        disableUSerButtons(true);
+        disableUserButtons(true);
         
         var refreshButtons = document.getElementsByClassName('btn-refresh');
         for (i = 0; i < refreshButtons.length; i++) {
-        refreshButtons[i].disabled = false;
+            refreshButtons[i].disabled = false;
         }
     }
 }
