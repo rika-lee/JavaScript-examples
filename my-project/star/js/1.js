@@ -33,7 +33,7 @@ for (i = 0; i < 5; i++) {
     for (j = 1; j <= i; j++) {
         stars += ' ';
     }
-    for (k = 4; k >= i; k --) {
+    for (k = 4; k >= i; k--) {
         stars += '*';
     }
     stars += '\n';
@@ -57,7 +57,7 @@ for (i = 0; i < 9; i++) {
 console.log(stars);
 
 var stars = '';
-for (i = 0; i < 9; i ++) {
+for (i = 0; i < 9; i++) {
     if (i < 5) {
         for (j = 3; j >= i; j--) {
             stars += ' ';
@@ -75,4 +75,51 @@ for (i = 0; i < 9; i ++) {
         }
         stars += '\n';
     }
-} console.log(stars);
+} 
+console.log(stars);
+
+var stars = '';
+for (i = 0; i < 5; i++) {
+    for (j = 3; j >= i; j--) {
+        stars += ' ';
+    }
+    for (k = 0; k <= 2*i; k++) {
+        stars += '*';
+    }
+    stars += '\n';
+}
+console.log(stars);
+
+var stars = '';
+for (i = 0; i < 5; i++) {
+    for (j = 1; j <= i; j++) {
+        stars += ' ';
+    }
+    for (k = 8; k >= 2*i; k--) {
+        stars += '*';
+    }
+    stars += '\n';
+}
+console.log(stars);
+
+var stars = '';
+for (i = 0; i < 9; i++) {
+    if (i < 5) {
+        for (j = 3; j >= i; j--) {
+            stars += ' ';
+        }
+        for (k = 0; k <= 2*i; k++) {
+            stars += '*';
+        }
+        stars += '\n';
+    } else {
+        for (j = 5; j <= i; j++) {
+            stars += ' ';
+        }
+        for (k = 16; k >= 2*i; k--) {
+            stars += '*';
+        }
+        stars += '\n';
+    }
+} 
+console.log(stars);
