@@ -5,6 +5,12 @@
     <title>Basketball</title>
 
     <link rel="stylesheet" href="css/styles.css"/>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>"js/jquery.animateNumber.min.js"</script>
     <script src="js/scripts.js"></script>
 
 </head>
@@ -24,14 +30,14 @@
                 <div class="div-score-name">사용자</div>
                 <div id="user-score" class="div-score-number">0</div>
             </div>
-            <div id="text">컴퓨터부터 시작합니다!</div>
+            <div id="text"></div>
         </div>
     </div>
 
     <div class="div-control-panel">
         <div id="div-computer" class="div-panel">
             <div class="div-control-name">컴퓨터</div>
-            <button class="btn-computer" onclick="onComputerShoot()">슛!</button>
+            <button class="btn-computer" onclick="onComputerShoot()" disabled>슛!</button>
         </div>
         <div id="div-user" class="div-panel">
             <div class="div-control-name">사용자</div>
