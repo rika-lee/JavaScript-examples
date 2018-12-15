@@ -24,21 +24,27 @@ function showText(s) {
 }
 
 function updateComputerScore(score) {
+    var preScore = computer.score;
     computer.score += score;
     var $comScoreElem = $('#computer-score');
     $comScoreElem.html(computer.score);
-    $comScoreElem.animateNumber({
-        number: computer.score
-    });
+    $comScoreElem
+        .prop('number', preScore)
+        .animateNumber({
+            number: computer.score
+        }, 200);
 }
 
 function updateUserScore(score) {
+    var preScore = user.score;
     user.score += score;
     var $userScoreElem = $('#user-score');
     $userScoreElem.html(user.score);
-    $userScoreElem.animateNumber({
-        number: user.score
-    });
+    $userScoreElem
+        .prop('number', preScore)
+        .animateNumber({
+            number: user.score
+        }, 200);
 }
 
 function disableComputerButtons(flag) {
