@@ -1,0 +1,79 @@
+.leaf {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #20884B;
+    border-radius: 50%;
+}
+
+.deco {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #D7B740;
+    border-radius: 50%;
+}
+
+.space {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+/* .star {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #D7B740;
+    border-radius: 50%;
+} */
+
+.star {
+    position: relative;
+    
+    display: inline-block;
+    width: 0;
+    height: 0;
+    
+    margin-left: .9em;
+    margin-right: .9em;
+    margin-bottom: 1.2em;
+    
+    border-right:  .3em solid transparent;
+    border-bottom: .7em  solid #D7B740;
+    border-left:   .3em solid transparent;
+  
+    /* Controlls the size of the stars. */
+    font-size: 24px;
+}
+.star:before, .star:after {
+    content: '';
+      
+    display: block;
+    width: 0;
+    height: 0;
+      
+    position: absolute;
+    top: .6em;
+    left: -1em;
+    
+    border-right:  1em solid transparent;
+    border-bottom: .7em  solid #D7B740;
+    border-left:   1em solid transparent;
+    
+    transform: rotate(-35deg);
+}
+    
+.star:after {  
+    transform: rotate(35deg);
+}
+
+.trunk {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #662B09;
+    border-radius: 50%;
+}
