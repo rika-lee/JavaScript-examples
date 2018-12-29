@@ -17,7 +17,7 @@ function search(page, perPage, searchKeyword) {
     if (typeof page !== 'number' || page < 1)
         page = 1;
 
-    if (perPage !== 'number' || perPage <= 0)
+    if (typeof perPage !== 'number' || perPage <= 0)
         perPage = 10;
 
     $.get(API_URL, {
