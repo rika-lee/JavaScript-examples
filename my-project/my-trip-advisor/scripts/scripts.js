@@ -8,7 +8,7 @@ $(function() {
     });
     
     $(window).trigger('scroll');
-    
+
     var dpFrom = $('#from').datepicker({
         dateFormat: 'yy-mm-dd',
         minDate: 0,
@@ -23,4 +23,48 @@ $(function() {
         minDate: 0
     });
     dpTo.datepicker('setDate', 4);
+
+    $('#form-search').submit(function(e) {
+        e.preventDefault();
+
+        var from = $('#from').val();
+        var to = $('#to').val();
+
+        search(from, to);
+    });
 });
+
+function search(from, to) {
+    var url = 'https://javascript-basic.appspot.com/searchLocation';
+
+    $.getJSON(url, {
+        from: from,
+        to: to
+    }, function(r) {
+        var $list = $('#list-panel');
+
+        for (var i = 0; i < r.length; i++) {
+            var data = r[i];
+            var $item = creatListItem(data);
+
+            $list.append($item);
+        }
+
+        $('#list-bg').show();
+    });
+}
+
+function creatListItem(data) {
+    var $tmpl = $('#list-item-template').clone().removeAttr('id');
+
+    $tmpl.find('.list-item-image').attr('src', data.titleImageUrl);
+    $tmpl.find('.list-item-name').html(data.name);
+    $tmpl.find('.list-item-city-name').html(data.cityName);
+
+    $tmpl.click(function(e) {
+        var url = 'detail.html?id=' + data.id;
+        window.location = url;
+    });
+
+    return $tmpl;
+}
