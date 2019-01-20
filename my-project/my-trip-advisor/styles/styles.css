@@ -211,6 +211,14 @@ button:hover {
     color: #000;
 }
 
+#header .menu-items img {
+    background-image: url('../images/line_maintop_gray.png');    
+}
+
+#header.inverted .menu-items img {
+    background-image: url('../images/line_maintop_black.png'); 
+}   
+
 .container {
     width: 100%;
     height: 100%;
