@@ -372,9 +372,10 @@ button:hover {
     line-height: 16px;
 }
 
-.list-item-city img {
+.list-item-city i {
     display: inline-block;
     vertical-align: middle;
+    color: #4299E0;
 }
 
 .list-item-city-name {
@@ -406,8 +407,9 @@ button:hover {
     padding-bottom: 3px;
 }
 
-.detail-header img {
+.detail-header i {
     vertical-align: middle;
+    color: #4299E0;
 }
 
 .detail-header .detail-header-name {
