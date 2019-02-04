@@ -41,7 +41,7 @@ function search(from, to) {
         from: from,
         to: to
     }, function(r) {
-        var $list = $('#list-panel');
+        var $list = $('#list-panel').empty();
 
         for (var i = 0; i < r.length; i++) {
             var data = r[i];
