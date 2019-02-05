@@ -269,7 +269,17 @@ button:hover {
 
 .panel-block {
     display: inline-block;
+    position: relative;
     margin-right: 17px;
+}
+
+.panel-block .icon-calendar {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    font-size: 25px;
+    color: #444;
 }
 
 .panel-block:last-of-type {
@@ -300,10 +310,6 @@ button:hover {
     border: 0;
     color: #fff;
     font-size: 18px;
-}
-
-#search-panel .btn-search img {
-    vertical-align: middle;
 }
 
 #list-bg {
