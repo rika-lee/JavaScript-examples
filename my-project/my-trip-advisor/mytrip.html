@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>My Trip Advisor-My Trip</title>
+    <link rel="stylesheet" href="libs\jquery-ui\jquery-ui.min.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="libs/js.cookie.js"></script>
+    <script src="libs/jquery-3.3.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY"></script>
+    <script src="scripts/mytrips.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="header" class="inverted">
+            <div>
+                <a href="index.html"><span></span></a>
+                <div class="menu-items right">
+                    <a href="mytrip.html">마이트립</a>
+                    <span></span>
+                    <a href="register.html">회원가입</a>
+                </div>
+            </div>
+        </div>
+        <div id="body" class="detail">
+            <div class="mytrip-container">
+              <div id="map"></div>
+              <ul id="mytrip-list"></ul>
+            </div>
+          </div>
+        </div>
+      
+        <li class="mytrip-item" id="mytrip-item-template">
+          <span><i class="fas fa-map-marker-alt item-icon"></i></span>
+          <span class="item-name"></span>
+          <span class="item-line"></span>
+          <span class="item-city-name"></span>
+          <span><i class="fas fa-times item-remove"></i></span>
+        </li>
+      
+      </body>
+      </html>
