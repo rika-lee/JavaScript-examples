@@ -38,6 +38,10 @@ function generateMyTripList(list) {
 
             markers[id].setMap(null);
             markers[id] = null;
+
+            var newList = removeFromList(list, id);
+
+            Cookies.set('MYTRIPS', newList);
         });
         $list.append($item);
 
@@ -52,6 +56,23 @@ function generateMyTripList(list) {
         bounds.extend(pos);
     }
     map.fitBounds(bounds);
+}
+
+function removeFromList(list, id) {
+    var index = -1;
+
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index !== -1) {
+        list.splice(index, 1);
+    }
+
+    return list;
 }
 
 function showMap() {
