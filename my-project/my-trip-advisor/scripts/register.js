@@ -50,6 +50,8 @@ $(function() {
             $('#inp-accept').next().next().html('필수 항목입니다').show();
             return;
         }
+
+        submit(email, password, gender, birth);
     });
 });
 
@@ -67,4 +69,17 @@ function validateEmail(email) {
 function validatePassword(password) {
     var re = /^(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
     return re.test(password);
+}
+
+function submit(email, password, gender, birth) {
+    var params = {
+        email: email,
+        password: password,
+        gender: gender,
+        birth: birth
+    };
+
+    $.post('my-api-url', params, function(r) {
+        console.log(r);
+    });
 }
