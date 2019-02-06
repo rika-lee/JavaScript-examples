@@ -562,6 +562,7 @@ button:hover {
 .div-gender { margin-top: 12px; }
 .div-gender .txt-warning { margin-top: 2px; }
 #inp-female { margin-left: 20px; }
+#inp-other { margin-left: 20px; }
 .div-birth { margin-top: 17px; }
 .div-birth .txt-warning { margin-top: 10px; }
 #inp-accept { margin-top: 30px; }
